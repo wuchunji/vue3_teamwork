@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="./public/css/iconfont.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公文协同管理</title>
+    <script type="text/javascript">
+      // 1rem = 设计图的100px = 视图的font-size 
+      // 相当于 设计图/100 = 视图/font-size
+      // font-size = 视图宽度/设计图宽度 * 100
+
+      (function() {
+          function setFont() {
+              const designWidth = 750; //设计稿宽度通常为750px
+              // 设置根元素font-size
+              document.documentElement.style.fontSize = 
+              (document.documentElement.clientWidth / designWidth) * 100 + 'px';
+          }
+          setFont();
+          // 设置监听事件，每次视图大小变换，重新匹配页面fontSize
+          window.addEventListener('resize', setFont, false);
+      })();
+    </script>
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        font-family: auto;
+      }
+      a{
+        text-decoration: none;
+        color: #fff;
+      }
+      ul{
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
